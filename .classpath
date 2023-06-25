@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="javaTester"/>
 	<classpathentry kind="src" path="testcases"/>
 	<classpathentry kind="src" path="testdata"/>
 	<classpathentry kind="src" path="actions"/>
@@ -11,6 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libSelenium/selenium-server-standalone-3.141.59.jar"/>
-	<classpathentry kind="lib" path="libSelenium/testng-6.14.3.jar"/>
+	<classpathentry kind="lib" path="libSelenium/testng-6.14.3.jar" sourcepath="libSelenium/testng-6.14.3-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
