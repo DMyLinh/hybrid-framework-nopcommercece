@@ -1,5 +1,6 @@
 package commons;
 
+import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	private WebDriver driver;
@@ -16,20 +16,24 @@ public class BaseTest {
 	protected WebDriver  getBrowserDriver(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		if (browser == BrowserList.FIREFOX) {
-			driver = WebDriverManager.firefoxdriver().create();
+			//driver = WebDriverManager.firefoxdriver().create();
+			driver = new FirefoxDriver();
 		} 
 		else if (browser == BrowserList.CHROME) {
-			driver = WebDriverManager.chromedriver().create();
+			//driver = WebDriverManager.chromedriver().create();
+			driver = new ChromeDriver();
 		} 
 		else if (browser == BrowserList.EDGE) {
-			driver = WebDriverManager.edgedriver().create();
+			//driver = WebDriverManager.edgedriver().create();
+			driver = new EdgeDriver();
 		}else {
 			throw new RuntimeException("Browser name is not valid");
 		}
 		
 		driver.get("https://demo.nopcommerce.com/");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		return driver;
 	}
 	

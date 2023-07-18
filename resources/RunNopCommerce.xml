@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce - UI Automation">
   <test name="Run on Chrome">
+  	<parameter name ="browser" value ="Chrome" />
     <classes>
-      <class name="com.nopcommerce.users.Level_03_Page_Object_Pattern"/>
+      <class name="com.nopcommerce.users.Level_05_Page_Factory"/>
     </classes>
   </test> 
+  
+  <test name="Run on Firefox">
+  	<parameter name ="browser" value ="Firefox" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_04_Multiple_Browser"/>
+    </classes>
+  </test> 
+  
+ 
+
 </suite> 
