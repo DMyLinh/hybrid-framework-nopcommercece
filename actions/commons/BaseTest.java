@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class BaseTest {
 	private WebDriver driver;
 	
-	protected WebDriver  getBrowserDriver(String browserName) {
+	protected WebDriver  getBrowserDriver(String browserName, String url) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		if (browser == BrowserList.FIREFOX) {
 			//driver = WebDriverManager.firefoxdriver().create();
@@ -30,10 +30,10 @@ public class BaseTest {
 			throw new RuntimeException("Browser name is not valid");
 		}
 		
-		driver.get("https://demo.nopcommerce.com/");
+		driver.get(url);
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		return driver;
 	}
 	

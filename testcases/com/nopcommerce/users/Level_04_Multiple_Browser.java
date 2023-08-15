@@ -4,10 +4,10 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.CustomerPageObject;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.LoginPageObject;
+import pageObjects.user.RegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -30,10 +30,10 @@ public class Level_04_Multiple_Browser extends BaseTest {
 	LoginPageObject loginPage;
 	CustomerPageObject customerPage;
 
-	@Parameters("browser")
+	@Parameters({"browser","userUrl"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver = getBrowserDriver(browserName, url);
 	}
 
 	@Test

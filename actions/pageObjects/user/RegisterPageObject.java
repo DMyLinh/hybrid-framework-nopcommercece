@@ -1,9 +1,10 @@
-package pageObjects;
+package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.RegisterPageUI;
+import commons.PageGeneratorManager;
+import pageUIs.users.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
 	private WebDriver driver;
@@ -44,9 +45,10 @@ public class RegisterPageObject extends BasePage {
 	}
 
 
-	public void clickToHomePageLogo() {
+	public HomePageObject clickToHomePageLogo() {
 		waitForElementClickable(driver, RegisterPageUI.HOMEPAGE_LOGO_IMAGE);
 		clickToElement(driver, RegisterPageUI.HOMEPAGE_LOGO_IMAGE);
+		return PageGeneratorManager.getHomePage(driver);
 	}
 
 	public void enterToLastNameTextbox(String lastname) {

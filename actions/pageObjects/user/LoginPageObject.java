@@ -1,9 +1,10 @@
-package pageObjects;
+package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.LoginPageUI;
+import commons.PageGeneratorManager;
+import pageUIs.users.LoginPageUI;
 
 public class LoginPageObject extends BasePage {
 
@@ -12,6 +13,7 @@ public class LoginPageObject extends BasePage {
 	public LoginPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
+	
 	
 	public void enterToEmailAddress(String emailAddress) {
 		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
@@ -29,6 +31,14 @@ public class LoginPageObject extends BasePage {
 	public void clickToLoginButton() {
 		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
+		
+	}
+
+	public HomePageObject LoginAsUser(String emailAddress, String password) {
+		enterToEmailAddress(emailAddress);
+		enterToPassword(password);	
+		clickToLoginButton();
+		return PageGeneratorManager.getHomePage(driver);
 		
 	}
 

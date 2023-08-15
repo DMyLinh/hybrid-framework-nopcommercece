@@ -1,17 +1,26 @@
-package pageObjects;
+package pageObjects.user;
+
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
-import pageUIs.CustomerPageUI;
+import pageUIs.users.CustomerPageUI;
 
-public class CustomerPageObject extends BasePage {
+public class CustomerPageObject extends SideBarMyAccountPageObject {
 
 	WebDriver driver;
 	
 	public CustomerPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
+	
+	public CustomerPageObject(WebDriver driver, long timeout) {
+		super(driver);
+		this.driver = driver;
+		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	}
+	
 	public String getFirstNameAttributeValue() {
 		waitForElementVisible(driver, CustomerPageUI.FIRST_NAME_TEXTBOX);
 		return getElementAttribute(driver, CustomerPageUI.FIRST_NAME_TEXTBOX, "value");
@@ -27,5 +36,7 @@ public class CustomerPageObject extends BasePage {
 		waitForElementVisible(driver, CustomerPageUI.EMAIL_TEXTBOX);
 		return getElementAttribute(driver, CustomerPageUI.EMAIL_TEXTBOX, "value");
 	}
+
+
 
 }

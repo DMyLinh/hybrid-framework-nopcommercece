@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import graphql.org.antlr.v4.runtime.tree.xpath.XPath;
-import pageUIs.HomePageUI;
+import pageUIs.users.HomePageUI;
 
 public class HomePageObject extends BasePageFactory{
 	WebDriver driver;

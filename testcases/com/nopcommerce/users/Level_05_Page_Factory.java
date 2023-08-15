@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
+import commons.PageGeneratorManager;
 import pageFactory.CustomerPageObject;
 import pageFactory.HomePageObject;
 import pageFactory.LoginPageObject;
@@ -31,10 +32,10 @@ public class Level_05_Page_Factory extends BaseTest {
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
 
-	@Parameters("browser")
+	@Parameters({"browser","userUrl"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver = getBrowserDriver(browserName, url);
 	}
 
 	@Test
